@@ -22,65 +22,11 @@
     </style>
 </head>
 <body>
-    <!-- Filters -->
-    <label for="dateFilter">Date:</label>
-    <input type="date" id="dateFilter">
-    <label for="timeSlotFilter">Time Slot:</label>
-    <select id="timeSlotFilter">
-        <option value="00-15">00-15</option>
-        <option value="15-30">15-30</option>
-        <option value="30-45">30-45</option>
-        <option value="45-60">45-60</option>
-    </select>
 
     <!-- Power BI iframe -->
     <iframe id="powerbi-frame" src="https://app.powerbi.com/view?r=eyJrIjoiYjMzMDFiNGQtZTZlYy00MTMyLTgyMWEtZWQ1NzBlMzk5ZTVlIiwidCI6IjY5YWNkMjU2LTA5NTQtNDg1Yy1iYmMyLThkMzI4ZmQ3ZjFlOCJ9" allowfullscreen="true"></iframe>
 
     <script>
-        // Function to save filter values to local storage
-        function saveFilters() {
-            const dateFilter = document.getElementById('dateFilter').value;
-            const timeSlotFilter = document.getElementById('timeSlotFilter').value;
-            localStorage.setItem('dateFilter', dateFilter);
-            localStorage.setItem('timeSlotFilter', timeSlotFilter);
-            updateIframeSrc();
-        }
-
-        // Function to load filter values from local storage
-        function loadFilters() {
-            const savedDateFilter = localStorage.getItem('dateFilter');
-            const savedTimeSlotFilter = localStorage.getItem('timeSlotFilter');
-
-            if (savedDateFilter) {
-                document.getElementById('dateFilter').value = savedDateFilter;
-            }
-            if (savedTimeSlotFilter) {
-                document.getElementById('timeSlotFilter').value = savedTimeSlotFilter;
-            }
-        }
-
-        // Function to update the iframe source with filter values
-        function updateIframeSrc() {
-            const dateFilter = document.getElementById('dateFilter').value;
-            const timeSlotFilter = document.getElementById('timeSlotFilter').value;
-            const iframe = document.getElementById('powerbi-frame');
-            const baseSrc = "https://app.powerbi.com/view?r=eyJrIjoiYjMzMDFiNGQtZTZlYy00MTMyLTgyMWEtZWQ1NzBlMzk5ZTVlIiwidCI6IjY5YWNkMjU2LTA5NTQtNDg1Yy1iYmMyLThkMzI4ZmQ3ZjFlOCJ9";
-            
-            // Construct the new src URL with filters
-            const newSrc = `${baseSrc}&filterPaneEnabled=false&navContentPaneEnabled=false&dateFilter=${dateFilter}&timeSlotFilter=${timeSlotFilter}`;
-            iframe.src = newSrc;
-        }
-
-        // Event listeners to save filters on change
-        document.getElementById('dateFilter').addEventListener('change', saveFilters);
-        document.getElementById('timeSlotFilter').addEventListener('change', saveFilters);
-
-        // Restore the filters when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            loadFilters();
-            updateIframeSrc();
-        });
-
         // Set the interval for refreshing the iframe
         setInterval(function () {
             saveFilters();
