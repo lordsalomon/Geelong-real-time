@@ -27,6 +27,19 @@
     <iframe id="powerbi-frame" src="https://app.powerbi.com/view?r=eyJrIjoiZWRlYjQ1NzgtYWUyMS00YWNmLWEyMzctYWUyZTcwMzc5OGY2IiwidCI6IjY5YWNkMjU2LTA5NTQtNDg1Yy1iYmMyLThkMzI4ZmQ3ZjFlOCJ9" allowfullscreen="true"></iframe>
 
     <script>
+        function saveFilters() {
+            // Implement saving of filters if needed
+            console.log("Filters saved (if any).");
+        }
+
+        function updateIframeSrc() {
+            var iframe = document.getElementById("powerbi-frame");
+            var src = iframe.src;
+            iframe.src = ""; // Clear the src to force reload
+            iframe.src = src; // Re-assign the original src
+            console.log("Iframe source updated.");
+        }
+
         // Set the interval for refreshing the iframe
         setInterval(function () {
             saveFilters();
