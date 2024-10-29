@@ -34,7 +34,7 @@
     </select>
     
     <!-- Power BI iframe -->
-    <iframe id="powerbi-frame" src="https://app.powerbi.com/view?r=eyJrIjoiZWRlYjQ1NzgtYWUyMS00YWNmLWEyMzctYWUyZTcwMzc5OGY2IiwidCI6IjY5YWNkMjU2LTA5NTQtNDg1Yy1iYmMyLThkMzI4ZmQ3ZjFlOCJ9" allowfullscreen="true"></iframe>
+    <iframe id="powerbi-frame" src="https://app.powerbi.com/view?r=eyJrIjoiYjMzMDFiNGQtZTZlYy00MTMyLTgyMWEtZWQ1NzBlMzk5ZTVlIiwidCI6IjY5YWNkMjU2LTA5NTQtNDg1Yy1iYmMyLThkMzI4ZmQ3ZjFlOCJ9" allowfullscreen="true"></iframe>
 
     <script>
  // Function to save filter values to local storage
@@ -64,7 +64,7 @@
             const dateFilter = document.getElementById('dateFilter').value;
             const timeSlotFilter = document.getElementById('timeSlotFilter').value;
             const iframe = document.getElementById('powerbi-frame');
-            const baseSrc = "https://app.powerbi.com/view?r=eyJrIjoiZWRlYjQ1NzgtYWUyMS00YWNmLWEyMzctYWUyZTcwMzc5OGY2IiwidCI6IjY5YWNkMjU2LTA5NTQtNDg1Yy1iYmMyLThkMzI4ZmQ3ZjFlOCJ9";
+            const baseSrc = "https://app.powerbi.com/view?r=eyJrIjoiYjMzMDFiNGQtZTZlYy00MTMyLTgyMWEtZWQ1NzBlMzk5ZTVlIiwidCI6IjY5YWNkMjU2LTA5NTQtNDg1Yy1iYmMyLThkMzI4ZmQ3ZjFlOCJ9";
             
             // Construct the new src URL with filters
             const newSrc = `${baseSrc}&filterPaneEnabled=false&navContentPaneEnabled=false&dateFilter=${dateFilter}&timeSlotFilter=${timeSlotFilter}`;
